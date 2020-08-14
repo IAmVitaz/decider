@@ -1,9 +1,10 @@
-package com.example.decider
+package com.vitaz.decider
 
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView.OnItemLongClickListener
@@ -52,6 +53,8 @@ class MainActivity : AppCompatActivity() {
                 val newItem = addNewItemEditText.text.toString()
                 list.add(newItem)
                 addNewItemEditText.text.clear()
+                Log.d("TAG", "This is a test log")
+
                 adapter.notifyDataSetChanged()
 
                 //hide soft keyboard

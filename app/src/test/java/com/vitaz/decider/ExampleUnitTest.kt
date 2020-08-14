@@ -1,4 +1,4 @@
-package com.example.decider
+package com.vitaz.decider
 
 import org.junit.Test
 
