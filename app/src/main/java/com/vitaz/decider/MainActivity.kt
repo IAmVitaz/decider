@@ -10,13 +10,17 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView.OnItemLongClickListener
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import com.vitaz.decider.Controller.App
+import com.vitaz.decider.Utilities.SharedPrefs
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
 
-    val list = arrayListOf("Watch TV", "Save the world!", "Make a photo of Spider Man")
+//    val list = arrayListOf("Watch TV", "Save the world!", "Make a photo of Spider Man")
+    val list: ArrayList<String> = App.sharedPreferences.getList()
     var prevItemDisplayed: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +56,7 @@ class MainActivity : AppCompatActivity() {
             if (addNewItemEditText.text.toString() != "") {
                 val newItem = addNewItemEditText.text.toString()
                 list.add(newItem)
+                App.sharedPreferences.saveList(list)
                 addNewItemEditText.text.clear()
                 Log.d("TAG", "This is a test log")
 
