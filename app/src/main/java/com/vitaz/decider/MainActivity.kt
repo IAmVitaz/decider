@@ -90,6 +90,7 @@ class MainActivity : AppCompatActivity() {
                         "Yes"
                     ) { dialog, which ->
                         list.removeAt(position)
+                        App.sharedPreferences.saveList(list)
                         adapter.notifyDataSetChanged()
                     }
                     .setNegativeButton("No", null)
